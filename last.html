@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Image on Button Click</title>
+</head>
+<body>
+
+<h2>Change Image on Button Click</h2>  
+<img id="myImage" src="KAHA.jpg" alt="Image 1" width="200" height="200"><br><br>
+
+<button onclick="changeImage()">Change Image</button>
+
+<script>
+function changeImage() {
+    var imgElement = document.getElementById('myImage');
+    if (imgElement.src.includes('KAHA.jpg')) {
+        imgElement.src = 'khaja.jpg';
+        imgElement.alt = 'Image 2';
+    } else {
+        imgElement.src = 'KAHA.jpg';
+        imgElement.alt = 'Image 1';
+    }
+}
+</script>
+
+</body>
+</html>

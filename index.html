@@ -1,0 +1,62 @@
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+    .error {
+        color: red;
+    }
+    </style>
+    <script>
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var phone = document.getElementById('phone').value;
+            var email = document.getElementById('email').value;
+        
+            var nameError = document.getElementById('nameError');
+            var phoneError = document.getElementById('phoneError');
+        
+            nameError.textContent = '';
+            phoneError.textContent = '';
+        
+            var isValid = true;
+        
+            if (name.trim() === '') {
+                nameError.textContent = 'Name is required';
+                isValid = false;
+            }
+        
+            if (phone.trim() === '') {
+                phoneError.textContent = 'Phone Number is required';
+                isValid = false;
+            } else if (!/^\d{10}$/.test(phone)) {
+                phoneError.textContent = 'Phone Number must be 10 digits';
+                isValid = false;
+            }
+       
+            return isValid;
+        }
+        </script>
+    </head>
+    <body>
+
+    <h2>Form Validation</h2>
+
+    <form id="myForm" onsubmit="return validateForm()">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><span id="nameError" class="error"></span><br><br>
+        
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address"><br><br>
+        
+        <label for="phone">Phone Number:</label><br>
+        <input type="text" id="phone" name="phone"><span id="phoneError" class="error"></span><br><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+    </body>
+    </html>
